@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Service
 public class FizzBuzzService {
 
-    //ToDo: Apply Caching to get the results from this FizzBuzzService --- DONE
+    // ToDo: Apply Caching to get the results from this FizzBuzzService --- DONE
 
     @Cacheable(value = "fizzbuzz", key = "#s + '-' + #e")
     public ArrayList FizzBuzz(int s, int e) {
@@ -31,10 +31,10 @@ public class FizzBuzzService {
             responseArray.add(response);
         }
 
-        System.out.println("Result Generated for the First Time Only: ");
+        System.out.println("Result Generated for the First Time Only for the input: " + s + " - " + e);
         System.out.print(responseArray);
         System.out.println("");
-        System.out.println("*****************************************");
+        System.out.println("********************************************************************");
 
         return responseArray;
 

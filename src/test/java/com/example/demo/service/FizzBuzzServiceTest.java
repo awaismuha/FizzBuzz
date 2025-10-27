@@ -25,18 +25,24 @@ class FizzBuzzServiceTest {
     @Test
     void testFizzBuzzOnlyMultiplesOfThree() {
         ArrayList<String> result = fizzBuzzService.FizzBuzz(3, 3);
+
+        assertEquals(1, result.size(), "Should return exactly one element for range 3–3");
         assertEquals("3: Fizz", result.get(0));
     }
 
     @Test
     void testFizzBuzzOnlyMultiplesOfFive() {
         ArrayList<String> result = fizzBuzzService.FizzBuzz(5, 5);
+
+        assertEquals(1, result.size(), "Should return exactly one element for range 5–5");
         assertEquals("5: Buzz", result.get(0));
     }
 
     @Test
     void testFizzBuzzForFizzBuzzCase() {
         ArrayList<String> result = fizzBuzzService.FizzBuzz(15, 15);
+
+        assertEquals(1, result.size(), "Should return exactly one element for range 15–15");
         assertEquals("15: FizzBuzz", result.get(0));
     }
 }

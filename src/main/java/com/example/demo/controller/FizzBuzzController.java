@@ -13,8 +13,6 @@ import java.util.ArrayList;
 @RequestMapping(value = "/fizzbuzz")
 public class FizzBuzzController {
 
-    // ToDo: Apply Unit testing on FizzBuzzController Class --- DONE
-
     private final FizzBuzzService demoService;
 
     @Autowired

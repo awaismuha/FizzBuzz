@@ -8,36 +8,24 @@ import java.util.ArrayList;
 @Service
 public class FizzBuzzService {
 
-    // ToDo: Apply Caching to get the results from this FizzBuzzService --- DONE
+    @Cacheable(value = "fizzbuzz", key = "T(String).format('%d-%d', #start, #end)")
+    public ArrayList<String> FizzBuzz(Integer start, Integer end) {
+        ArrayList<String> responseArray = new ArrayList<>();
 
-    @Cacheable(value = "fizzbuzz", key = "#s + '-' + #e")
-    public ArrayList FizzBuzz(int s, int e) {
-        ArrayList responseArray = new ArrayList<>();
-        for (int i = s; i <= e; i++) {
-            String response = "";
-
-            if (i % 3 == 0) {
-                response = i + ": Fizz";
-            }
-            if (i % 5 == 0) {
-                response = i + ": Buzz";
-            }
-            if (i % 3 == 0 && i % 5 == 0) {
-                response = i + ": FizzBuzz";
-            }
-            if (i % 3 != 0 && i % 5 != 0) {
-                response = "" + i;
+        for (int numbner = start; numbner <= end; numbner++) {
+            String response;
+            if (numbner % 3 == 0 && numbner % 5 == 0) {
+                response = numbner + ": FizzBuzz";
+            } else if (numbner % 3 == 0) {
+                response = numbner + ": Fizz";
+            } else if (numbner % 5 == 0) {
+                response = numbner + ": Buzz";
+            } else {
+                response = String.valueOf(numbner);
             }
             responseArray.add(response);
         }
 
-        System.out.println("Result Generated for the First Time Only for the input: " + s + " - " + e);
-        System.out.print(responseArray);
-        System.out.println("");
-        System.out.println("********************************************************************");
-
         return responseArray;
-
     }
-
 }

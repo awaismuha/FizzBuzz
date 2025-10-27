@@ -12,6 +12,12 @@ public class FizzBuzzService {
     public ArrayList<String> FizzBuzz(Integer start, Integer end) {
         ArrayList<String> responseArray = new ArrayList<>();
 
+        try {
+            Thread.sleep(100); 
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+
         for (int numbner = start; numbner <= end; numbner++) {
             String response;
             if (numbner % 3 == 0 && numbner % 5 == 0) {
